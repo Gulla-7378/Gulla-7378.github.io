@@ -3,27 +3,25 @@ What is rocket ?
 Rocket consists of stages called Node, and it defines structure for node to run paralley or sequentially
 
 Sample code to create Rocket
-''''' CODE SNIPPET ''''''
+```scala 
 
-class <RocketName> extends RocketProvider {
+class RocketNameextends RocketProvider {
 
     override def configure: RocketDefinition ={
 
-        RocketBuilder("<RocketName> of rocket to be displayed in UI")
-        .name("<RocketName> of the Pipeline")
+        RocketBuilder("RocketName of rocket to be displayed in UI")
+        .name("RocketName of the Pipeline")
         .description("Description")
         .globalArg("name","value")
         .parallelism(value)
         .node[Node1]("Node 1 name").children("Node 2 name")
         .node[Node2]("Node 2 name")..children("Node 3 name", "Node N name")
         .nodeArg("name","value")
-        .
-        .
-        .
         .node[Node N]("Node N name").children("Children Node Name")
         .finish()
     }
 }
+```
 
 Attribute of RocketBuilder 
 1.  name - Name of Rocket, type string
